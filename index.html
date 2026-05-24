@@ -86,30 +86,14 @@
     overflow: hidden;
   }
 
-  /* hero title row — SVG + text side by side */
-  .hero-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    opacity: 0;
-    animation: fadeUp 1.2s ease forwards 0.6s;
-  }
-
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(52px, 8vw, 96px);
     font-weight: 300;
     letter-spacing: 16px;
     color: var(--text);
-  }
-
-  /* the new side SVG */
-  .hero-side-svg {
-    width: clamp(80px, 9vw, 120px);
-    height: clamp(80px, 9vw, 120px);
-    flex-shrink: 0;
-    opacity: 0.9;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards 0.6s;
   }
 
   .hero-mark {
@@ -499,8 +483,6 @@
 
     .hero { padding: 100px 32px 60px; }
 
-    .hero-side-svg { width: 80px; height: 80px; }
-
     #about { gap: 48px; padding: 80px 32px; }
 
     #services { padding: 80px 32px; }
@@ -533,19 +515,10 @@
     .hero-mark svg { width: 72px; height: 72px; }
     .hero-mark { margin-bottom: 24px; }
 
-    .hero-title-row {
-      gap: 16px;
-      flex-wrap: nowrap;
-    }
-
     .hero h1 {
       font-size: clamp(40px, 12vw, 64px);
       letter-spacing: 10px;
     }
-
-    /* show only left SVG on mobile, hide right */
-    .hero-side-svg { width: 52px; height: 52px; }
-    .hero-side-svg:last-child { display: none; }
 
     .hero-line { margin: 18px auto; }
 
@@ -709,94 +682,7 @@
     </svg>
   </div>
 
-  <!-- JIYO! text + side SVG graphic -->
-  <div class="hero-title-row">
-
-    <!-- LEFT: decorative light-prism SVG -->
-    <svg class="hero-side-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- outer rotating ring with tick marks -->
-      <g class="spin-slow" style="transform-origin:60px 60px">
-        <circle cx="60" cy="60" r="54" stroke="#d4cfc8" stroke-width="0.4"/>
-        <!-- tick marks every 30° -->
-        <line x1="60" y1="6"  x2="60" y2="12" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="87" y1="13" x2="84" y2="18" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="107" y1="33" x2="103" y2="36" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="114" y1="60" x2="108" y2="60" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="107" y1="87" x2="103" y2="84" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="87" y1="107" x2="84" y2="102" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="60" y1="114" x2="60" y2="108" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="33" y1="107" x2="36" y2="102" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="13" y1="87" x2="17" y2="84" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="6"  y1="60" x2="12" y2="60" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="13" y1="33" x2="17" y2="36" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-        <line x1="33" y1="13" x2="36" y2="18" stroke="#d4cfc8" stroke-width="0.5" stroke-linecap="round"/>
-      </g>
-
-      <!-- inner counter-rotating ring -->
-      <circle cx="60" cy="60" r="38" stroke="#e8d5cc" stroke-width="0.4"
-        style="animation: rotate-reverse 28s linear infinite; transform-origin:60px 60px"/>
-
-      <!-- radiating light rays from center -->
-      <g style="animation: pulse-glow 3s ease-in-out infinite; transform-origin:60px 60px">
-        <line x1="60" y1="60" x2="60" y2="28" stroke="#c9a96e" stroke-width="0.7" stroke-linecap="round" opacity="0.9"/>
-        <line x1="60" y1="60" x2="87" y2="43" stroke="#c9a96e" stroke-width="0.5" stroke-linecap="round" opacity="0.6"/>
-        <line x1="60" y1="60" x2="87" y2="77" stroke="#c9a96e" stroke-width="0.4" stroke-linecap="round" opacity="0.4"/>
-        <line x1="60" y1="60" x2="60" y2="92" stroke="#c9a96e" stroke-width="0.3" stroke-linecap="round" opacity="0.25"/>
-        <line x1="60" y1="60" x2="33" y2="77" stroke="#c9a96e" stroke-width="0.4" stroke-linecap="round" opacity="0.4"/>
-        <line x1="60" y1="60" x2="33" y2="43" stroke="#c9a96e" stroke-width="0.5" stroke-linecap="round" opacity="0.6"/>
-      </g>
-
-      <!-- secondary finer rays -->
-      <g opacity="0.3">
-        <line x1="60" y1="60" x2="74" y2="30" stroke="#c9a96e" stroke-width="0.4" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="90" y2="60" stroke="#c9a96e" stroke-width="0.3" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="74" y2="90" stroke="#c9a96e" stroke-width="0.3" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="46" y2="90" stroke="#c9a96e" stroke-width="0.3" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="30" y2="60" stroke="#c9a96e" stroke-width="0.3" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="46" y2="30" stroke="#c9a96e" stroke-width="0.4" stroke-linecap="round"/>
-      </g>
-
-      <!-- small diamond at top ray tip -->
-      <polygon points="60,22 62.5,27 60,25 57.5,27"
-        fill="#c9a96e" opacity="0.8"
-        style="animation: ray-flicker 2.5s ease-in-out infinite"/>
-
-      <!-- center orb layers -->
-      <circle cx="60" cy="60" r="10" fill="#c9a96e" opacity="0.08"/>
-      <circle cx="60" cy="60" r="6"  fill="#c9a96e" opacity="0.18"/>
-      <circle cx="60" cy="60" r="3"  fill="#c9a96e" opacity="0.9"/>
-      <circle cx="60" cy="60" r="1.2" fill="#e8d5b0"/>
-
-      <!-- arc accent top-right -->
-      <path d="M75 30 A28 28 0 0 1 90 55" stroke="#c9a96e" stroke-width="0.5"
-        fill="none" stroke-linecap="round" opacity="0.4"/>
-    </svg>
-
-    <!-- JIYO! -->
-    <h1>JIYO!</h1>
-
-    <!-- RIGHT: mirror / complementary SVG (subtler) -->
-    <svg class="hero-side-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-      style="opacity:0.45; transform: scaleX(-1);">
-      <g style="animation: rotate-reverse 34s linear infinite; transform-origin:60px 60px">
-        <circle cx="60" cy="60" r="54" stroke="#d4cfc8" stroke-width="0.4"/>
-        <line x1="60" y1="6"  x2="60" y2="12" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="114" y1="60" x2="108" y2="60" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="60" y1="114" x2="60" y2="108" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-        <line x1="6"   y1="60" x2="12" y2="60" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
-      </g>
-      <circle cx="60" cy="60" r="38" stroke="#e8d5cc" stroke-width="0.3"
-        style="animation: rotate-slow 22s linear infinite; transform-origin:60px 60px"/>
-      <g opacity="0.5" style="animation: pulse-glow 4s ease-in-out infinite 1s; transform-origin:60px 60px">
-        <line x1="60" y1="60" x2="60" y2="28" stroke="#c9a96e" stroke-width="0.6" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="87" y2="43" stroke="#c9a96e" stroke-width="0.4" stroke-linecap="round"/>
-        <line x1="60" y1="60" x2="33" y2="43" stroke="#c9a96e" stroke-width="0.4" stroke-linecap="round"/>
-      </g>
-      <circle cx="60" cy="60" r="5" fill="#c9a96e" opacity="0.15"/>
-      <circle cx="60" cy="60" r="2.5" fill="#c9a96e" opacity="0.6"/>
-    </svg>
-
-  </div>
+  <h1>JIYO!</h1>
 
   <div class="hero-line"></div>
   <div class="hero-sub">Lighting Studio · New York</div>
